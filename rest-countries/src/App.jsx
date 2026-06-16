@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import TopBar from './components/TopBar'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <div>
-      
+    <div className="min-h-screen bg-gray-500 ">
+      <TopBar/>
     </div>
   )
 }

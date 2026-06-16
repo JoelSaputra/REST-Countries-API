@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-rubik: "Rubik", "sans-serif";
+  --font-nunito: "Nunito Sans", "sans-serif";
+
+  /* Animation */
+  
+
+}
+
+body{
+    font-family: var(--font-nunito);
+}
