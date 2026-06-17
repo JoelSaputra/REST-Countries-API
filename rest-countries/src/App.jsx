@@ -9,7 +9,7 @@ function App() {
   
 
   return (
-    <div className="min-h-screen bg-neutral-200">
+    <div className="min-h-screen bg-custom-white">
       <TopBar/>
 
       <div className="mt-20 ml-15 flex flex-row space-x-170">

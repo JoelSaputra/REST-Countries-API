@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
 @theme {
+
+  /* Colors */
+  --color-custom-white : rgb(248, 248, 248);
+  --color-custom-red: rgb(224, 163, 163);
+
+
   /* Fonts */
   --font-rubik: "Rubik", "sans-serif";
   --font-nunito: "Nunito Sans", "sans-serif";
