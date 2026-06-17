@@ -7,11 +7,7 @@ import data from './data.json'
 
 function App() {
 
-  const response = data;
-  const [city, setCity] = useState("");
-
-  
-
+  const [country, setCountry] = useState(data[0]);
   return (
     
 
@@ -25,7 +21,7 @@ function App() {
 
 
       <div className="mt-10 ml-15 mr-15">
-      <CountryCard/>
+      <CountryCard country={country}/>
       </div>
 
 

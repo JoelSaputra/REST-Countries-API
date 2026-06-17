@@ -5,6 +5,8 @@
   /* Colors */
   --color-custom-white : rgb(237, 237, 237);
   --color-custom-red: rgb(224, 163, 163);
+  --color-custom-grey: rgb(139, 138, 138);
+
 
 
   /* Fonts */
@@ -18,5 +20,6 @@
 
 body{
     font-family: var(--font-nunito);
+    
     
 }
