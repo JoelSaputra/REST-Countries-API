@@ -8,22 +8,37 @@ import data from './data.json'
 function App() {
 
   const [countries, setCountries] = useState(data);
+  const [selectedRegions, setSelectedRegions] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [filteredCountries, setFilteredCountries] = useState(data);
 
-  const handleSearch = (searchTerm) => {
-    if(!searchTerm || searchTerm.trim() === ''){
-      setFilteredCountries(data);
-      return;
-    }
+  const applyFilters = (search, region) => {
 
-    const filtered = countries.filter((country) => 
-      country.name.toLowerCase().includes(searchTerm.toLowerCase())
-      
+    let filtered = [...countries];
+
+    if(search || search.trim() !== ''){
+      filtered = filtered.filter((country) => 
+      country.name.toLowerCase().includes(search.toLowerCase())
     );
-
+    }
+    if(region && region !== ''){
+      filtered = filtered.filter((country) => {
+        country.region === region })
+    }
     setFilteredCountries(filtered);
-
   }
+
+  const handleSearch = (search) => {
+    setSearchTerm(search)
+    applyFilters(search, selectedRegions);
+  
+  }
+
+  const handleRegion = (region) => {
+    setSelectedRegions(region)
+    applyFilters(searchTerm, region);
+  }
+
 
   return (
 
@@ -32,7 +47,7 @@ function App() {
 
       <div className="mt-20 ml-15 flex flex-row space-x-170">
       <SearchBar onSearch={handleSearch}/>
-      <OptionBar countries={countries}/>
+      <OptionBar countries={countries} onSelectRegion={handleRegion}/>
       </div>
 
 

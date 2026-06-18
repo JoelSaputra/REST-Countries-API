@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-const OptionBar = ({ countries }) => {
+const OptionBar = ({ countries, onSelectRegion }) => {
 
   const [buttonOption, setButtonOption] = useState("Filter by Region");
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +20,12 @@ const OptionBar = ({ countries }) => {
       setIsOpen(true);
 
     }
-    
+  }
 
+  const handleClick = (region) => {
+    setButtonOption(region);
+    setIsOpen(false);
+    onSelectRegion(region);
   }
 
 
@@ -40,7 +44,7 @@ const OptionBar = ({ countries }) => {
                     mt-1 w-full bg-white shadow-lg 
                     rounded-lg py-2 z-10 space-y-1">
       {nonDuplicatesArray.map((region)=> {
-        return <button className="flex pl-10 mt-2" key={region}>{region}</button>
+        return <button onClick={() => {handleClick(region)}} className="flex pl-10 mt-2" key={region}>{region}</button>
       })}
 
     </div> }
