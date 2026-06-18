@@ -12,7 +12,7 @@ function App() {
 
   const handleSearch = (searchTerm) => {
     if(!searchTerm || searchTerm.trim() === ''){
-      setFilteredCountries(countries);
+      setFilteredCountries(data);
       return;
     }
 
@@ -32,7 +32,7 @@ function App() {
 
       <div className="mt-20 ml-15 flex flex-row space-x-170">
       <SearchBar onSearch={handleSearch}/>
-      <OptionBar/>
+      <OptionBar countries={countries}/>
       </div>
 
 
