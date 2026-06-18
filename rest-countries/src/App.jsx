@@ -16,14 +16,15 @@ function App() {
 
     let filtered = [...countries];
 
-    if(search || search.trim() !== ''){
+    if(search && search.trim() !== ''){
       filtered = filtered.filter((country) => 
       country.name.toLowerCase().includes(search.toLowerCase())
     );
     }
     if(region && region !== ''){
-      filtered = filtered.filter((country) => {
-        country.region === region })
+      filtered = filtered.filter(
+        (country) => country.region === region
+      )
     }
     setFilteredCountries(filtered);
   }

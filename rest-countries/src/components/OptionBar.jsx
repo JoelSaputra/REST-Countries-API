@@ -28,9 +28,6 @@ const OptionBar = ({ countries, onSelectRegion }) => {
     onSelectRegion(region);
   }
 
-
-
-
   return (
     <div className="relative bg-white flex flex-col pl-10 pr-5
                       shadow-md max-w-md h-12 rounded w-50">
@@ -43,8 +40,10 @@ const OptionBar = ({ countries, onSelectRegion }) => {
     <div className="absolute flex flex-col top-full left-0 
                     mt-1 w-full bg-white shadow-lg 
                     rounded-lg py-2 z-10 space-y-1">
+                      
       {nonDuplicatesArray.map((region)=> {
-        return <button onClick={() => {handleClick(region)}} className="flex pl-10 mt-2" key={region}>{region}</button>
+        return <button onClick={() => {handleClick(region)}} 
+        className="flex pl-10 mt-2" key={region}>{region}</button>
       })}
 
     </div> }
