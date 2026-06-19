@@ -1,25 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-
-  /* Colors */
-  --color-custom-white : rgb(237, 237, 237);
-  --color-custom-red: rgb(224, 163, 163);
-  --color-custom-grey: rgb(139, 138, 138);
-
-
-
-  /* Fonts */
-  --font-rubik: "Rubik", "sans-serif";
-  --font-nunito: "Nunito Sans", "sans-serif";
-
-  /* Animation */
+  /* Light Mode Colors */
+  --color-bg: hsl(0, 0%, 99%);           /* Light Mode Background */
+  --color-text: hsl(200, 15%, 8%);       /* Light Mode Text */
+  --color-card: hsl(0, 100%, 100%);      /* Light Mode Elements (White) */
+  --color-input: hsl(0, 0%, 50%);        /* Light Mode Input */
+  --color-shadow: rgba(0, 0, 0, 0.1);
   
-
+  /* Dark Mode Colors */
+  --color-dark-bg: hsl(207, 26%, 17%);   /* Dark Mode Background */
+  --color-dark-card: hsl(209, 23%, 22%); /* Dark Mode Elements */
+  --color-dark-text: hsl(0, 100%, 100%); /* Dark Mode Text (White) */
+  --color-dark-input: hsl(209, 23%, 22%);
+  --color-dark-shadow: rgba(0, 0, 0, 0.3);
 }
 
-body{
-    font-family: var(--font-nunito);
-    
-    
+/* Default: Light Mode */
+:root {
+  --color-bg: hsl(0, 0%, 99%);
+  --color-text: hsl(200, 15%, 8%);
+  --color-card: hsl(0, 100%, 100%);
+  --color-input: hsl(0, 0%, 50%);
+}
+
+/* Dark Mode */
+.dark {
+  --color-bg: hsl(207, 26%, 17%);
+  --color-card: hsl(209, 23%, 22%);
+  --color-text: hsl(0, 100%, 100%);
+  --color-input: hsl(209, 23%, 22%);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
 }

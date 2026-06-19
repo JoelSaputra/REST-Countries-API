@@ -1,95 +1,74 @@
 import React from 'react'
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react"
 
-const DetailedPage = ({country, backClick}) => {
+const DetailedPage = ({ country, backClick }) => {
   return (
-    <div>
-        <div className="mt-20 ml-6">
+    <div className="min-h-screen bg-bg text-text transition-colors duration-300">
+      <div className="mt-20 ml-6">
         <button
-        className="
-        mt-10 ml-6
-        w-[150px] 
-        h-[40px]
-        flex items-center
-        gap-[20px]
-        px-[25px]
-        bg-[#FEFEFE]
-        rounded-[8px]
-        shadow-[0_3px_12px_rgba(0,0,0,0.22)]
-        text-[#2f2f2f]
-        text-[17px]
-        font-normal
-        hover:cursor-pointer"
-        onClick={backClick}>
-         <ArrowLeft size={18} strokeWidth={2.3} />
-         <span>Back</span>
+          onClick={backClick}
+          className="flex items-center gap-4 px-6 py-2 bg-card shadow-md rounded-lg text-text hover:shadow-lg transition-all duration-300"
+        >
+          <ArrowLeft size={18} strokeWidth={2.3} />
+          <span>Back</span>
         </button>
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-12 mt-16 px-8 max-w-7xl mx-auto">
+        <div className="lg:w-1/2">
+          <img 
+            alt={`Flag of ${country.name}`} 
+            src={country.flags.svg}
+            className="w-full h-[250px] lg:h-[400px] object-cover rounded-lg shadow-md"
+          />
         </div>
 
-    <div className="h-90 flex flex-row space-x-30">
-        <div className="w-120 mt-15 ml-11 h-screen">
-            <img alt="flag-logo" src={country.flags.svg} className=""/>
+        <div className="lg:w-1/2">
+          <h1 className="font-extrabold text-3xl mb-6">{country.name}</h1>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
+            <p className="text-sm">
+              <span className="font-semibold">Native Name:</span> {country.nativeName}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Population:</span> {country.population?.toLocaleString()}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Region:</span> {country.region}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Sub Region:</span> {country.subregion}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Capital:</span> {country.capital}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Top Level Domain:</span> {country.topLevelDomain}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Currencies:</span> {country.currencies?.[0]?.code || 'N/A'}
+            </p>
+            <p className="text-sm">
+              <span className="font-semibold">Languages:</span> {country.languages?.map(l => l.name).join(', ') || 'N/A'}
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            <p className="font-semibold mr-1">Border Countries:</p>
+            {country.borders?.length > 0 ? (
+              country.borders.map((border) => (
+                <span key={border} className="px-4 py-1 bg-card shadow-sm rounded text-sm">
+                  {border}
+                </span>
+              ))
+            ) : (
+              <span className="text-text/50">None</span>
+            )}
+          </div>
         </div>
-
-       <div className="mt-20">
-  <h1 className="font-bold text-3xl mb-6">{country.name}</h1>
-  
-  <div className="grid grid-cols-2 gap-x-30 gap-y-2 mt-10">
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Native Name:</span>
-      {country.nativeName}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Population:</span>
-      {country.population?.toLocaleString()}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Region:</span>
-      {country.region}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Sub Region:</span>
-      {country.subregion}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Capital:</span>
-      {country.capital}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Top Level Domain:</span>
-      {country.topLevelDomain}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Currencies:</span>
-      {country.currencies?.[0]?.code || 'N/A'}
-    </p>
-    <p className="text-sm">
-      <span className="font-bold mr-1.5">Languages:</span>
-      {country.languages.map(lang => lang.name).join(', ') || 'N/A'}
-    </p>
-  </div>
-
-  <div className="mt-12 flex flex-wrap items-center gap-2">
-    <p className="font-semibold mr-1">Border Countries:</p>
-    {country.borders.length > 0 ? (
-        country.borders.map((border) => (
-            <span key={border} className="px-3 py-1 bg-white shadow-sm rounded text-sm hover:cursor-pointer">
-                {border}
-            </span>
-        ))
-    ) : (
-        <span className="text-gray-500">None</span>
-    )}
-</div>
-</div>
-
-
-
-
-    </div>
-
+      </div>
     </div>
   )
 }
 
-export default DetailedPage;
+export default DetailedPage
