@@ -1,7 +1,7 @@
 import React from 'react'
 import { ArrowLeft } from "lucide-react";
 
-const DetailedPage = ({country}) => {
+const DetailedPage = ({country, backClick}) => {
   return (
     <div>
         <div className="mt-20 ml-6">
@@ -19,7 +19,8 @@ const DetailedPage = ({country}) => {
         text-[#2f2f2f]
         text-[17px]
         font-normal
-        hover:cursor-pointer">
+        hover:cursor-pointer"
+        onClick={backClick}>
          <ArrowLeft size={18} strokeWidth={2.3} />
          <span>Back</span>
         </button>

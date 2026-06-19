@@ -48,6 +48,10 @@ function App() {
     setDetailedIsOn(true);
   }
 
+  const closeDetail = () => {
+    setDetailedIsOn(false);
+  }
+
 
   return (
 
@@ -56,7 +60,7 @@ function App() {
 
       { detailedIsOn &&
       <div className="bg-custom-white min-h-100 min-w-screen overflow-y-hidden" >
-        <DetailedPage country={detailedCountry}/>
+        <DetailedPage country={detailedCountry} backClick={closeDetail}/>
       </div>
       }
 
