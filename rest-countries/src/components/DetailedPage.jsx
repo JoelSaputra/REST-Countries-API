@@ -34,7 +34,7 @@ const DetailedPage = ({country}) => {
        <div className="mt-20">
   <h1 className="font-bold text-3xl mb-6">{country.name}</h1>
   
-  <div className="grid grid-cols-2 gap-x-50 gap-y-2 mt-10">
+  <div className="grid grid-cols-2 gap-x-30 gap-y-2 mt-10">
     <p className="text-sm">
       <span className="font-bold mr-1.5">Native Name:</span>
       {country.nativeName}

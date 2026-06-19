@@ -12,7 +12,7 @@ function App() {
   const [selectedRegions, setSelectedRegions] = useState('');
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCountries, setFilteredCountries] = useState(data);
-  const [detailedIsOn, setDetailedIsOn] = useState(true);
+  const [detailedIsOn, setDetailedIsOn] = useState(false);
 
   const applyFilters = (search, region) => {
 
