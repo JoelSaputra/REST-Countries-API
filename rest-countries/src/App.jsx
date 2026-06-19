@@ -50,7 +50,7 @@ function App() {
 
       { detailedIsOn &&
       <div className="bg-custom-white min-h-100 min-w-screen overflow-y-hidden" >
-        <DetailedPage/>
+        <DetailedPage country={data[0]}/>
       </div>
       }
 
