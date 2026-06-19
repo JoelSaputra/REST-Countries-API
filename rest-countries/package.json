@@ -1,7 +1,7 @@
 {
   "name": "rest-countries",
   "private": true,
-  "homepage": "https://joelsaputra.github.io/REST-Countries-API/",
+  "homepage": "https://joelsaputra.github.io/REST-Countries-API",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
