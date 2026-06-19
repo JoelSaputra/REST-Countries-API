@@ -1,13 +1,29 @@
 import React from 'react'
+import { ArrowLeft } from "lucide-react";
 
 const DetailedPage = () => {
   return (
-    <div className="">
-        <div className="mt-20 ml-20 pt-2 pl-10 bg-custom-white 
-        shadow-gray-800/50 shadow-md w-30 h-10 
-        rounded hover:cursor-pointer ">
-            
-        <button className="hover:cursor-pointer">Back</button>
+    <div className="mt-20 ml-6">
+        <div>
+
+        <button
+        className="
+        mt-10 ml-6
+        w-[150px] h-[40px]
+        lex items-center
+        gap-[20px]
+        px-[25px]
+        bg-[#FEFEFE]
+        rounded-[8px]
+        shadow-[0_3px_12px_rgba(0,0,0,0.22)]
+        text-[#2f2f2f]
+        text-[17px]
+        font-normal
+        hover:cursor-pointer
+        ">
+  <ArrowLeft size={18} strokeWidth={2.3} />
+  <span>Back</span>
+</button>
         </div>
     </div>
   )
