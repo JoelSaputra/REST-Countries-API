@@ -1,52 +1,53 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react';
 
 const OptionBar = ({ countries, onSelectRegion, buttonOption, setButtonOption }) => {
-  const [isOpen, setIsOpen] = useState(false)
 
-  const nonDuplicatesArray = [...new Set(countries.map(c => c.region))]
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClickDisplay = () => setIsOpen(!isOpen)
+  const nonDuplicates = new Set(countries.map((country)=>{
+    return country.region;
+  }));
+  const nonDuplicatesArray = [...nonDuplicates];
+
+
+  const handleClickDisplay = () => {
+    if(isOpen){
+      setIsOpen(false);
+    }
+    else{
+      setIsOpen(true);
+
+    }
+  }
 
   const handleClick = (pRegion) => {
-    setButtonOption(pRegion)
-    setIsOpen(false)
-    onSelectRegion(pRegion)
+    setButtonOption(pRegion);
+    setIsOpen(false);
+    onSelectRegion(pRegion);
   }
 
   return (
-    <div className="relative bg-card shadow-md h-12 rounded-lg w-50 transition-colors duration-300">
-      <button 
-        onClick={handleClickDisplay}
-        className="w-full h-full flex items-center justify-between px-6 text-text font-medium"
-      >
-        <span>{buttonOption}</span>
-        <span className="text-input">{isOpen ? '▲' : '▼'}</span>
-      </button>
-      
-      {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-full bg-card shadow-lg rounded-lg py-2 z-10 transition-colors duration-300">
-          <button 
-            onClick={() => {
-              setButtonOption("Filter by Region")
-              setIsOpen(false)
-              onSelectRegion('')
-            }}
-            className="w-full text-left px-6 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-text transition-colors"
-          >
-            Filter by Region
-          </button>
-          
-          {nonDuplicatesArray.map((region) => (
-            <button 
-              key={region}
-              onClick={() => handleClick(region)}
-              className="w-full text-left px-6 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-text transition-colors"
-            >
-              {region}
-            </button>
-          ))}
-        </div>
-      )}
+    <div className="relative bg-card flex flex-col pl-10 pr-5
+                      shadow-md max-w-md h-12 rounded w-50">
+
+    <div className="pr-5 outline-none bg-card mb-3.5">
+        <button onClick={handleClickDisplay} className="mt-3 text-text">{buttonOption}</button>
+    </div>
+    
+    {isOpen &&  
+    <div className="absolute flex flex-col top-full left-0 
+                    mt-1 w-full bg-card shadow-lg 
+                    rounded-lg py-2 z-10 space-y-1">
+                      
+      {nonDuplicatesArray.map((region)=> {
+        return <button onClick={() => {handleClick(region)}} 
+        className="w-full text-left px-6 py-2 hover:bg-hover text-text transition-colors duration-300"
+        key={region}>{region}</button>
+      })}
+
+    </div> }
+
     </div>
   )
 }

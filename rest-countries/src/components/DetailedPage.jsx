@@ -7,7 +7,8 @@ const DetailedPage = ({ country, backClick }) => {
       <div className="mt-20 ml-6">
         <button
           onClick={backClick}
-          className="flex items-center gap-4 px-6 py-2 bg-card shadow-md rounded-lg text-text hover:shadow-lg transition-all duration-300"
+          className="flex items-center gap-4 px-6 py-2 bg-card shadow-md rounded-lg text-text hover:shadow-lg 
+          transition-all duration-300 ml-25"
         >
           <ArrowLeft size={18} strokeWidth={2.3} />
           <span>Back</span>
@@ -23,8 +24,8 @@ const DetailedPage = ({ country, backClick }) => {
           />
         </div>
 
-        <div className="lg:w-1/2">
-          <h1 className="font-extrabold text-3xl mb-6">{country.name}</h1>
+        <div className="lg:w-1/2 mt-10 ml-15">
+          <h1 className="font-extrabold text-3xl mb-15">{country.name}</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
             <p className="text-sm">
