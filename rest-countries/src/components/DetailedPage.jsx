@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 const DetailedPage = ({country}) => {
   return (
     <div>
-
         <div className="mt-20 ml-6">
         <button
         className="
@@ -21,9 +20,9 @@ const DetailedPage = ({country}) => {
         text-[17px]
         font-normal
         hover:cursor-pointer">
-  <ArrowLeft size={18} strokeWidth={2.3} />
-  <span>Back</span>
-</button>
+         <ArrowLeft size={18} strokeWidth={2.3} />
+         <span>Back</span>
+        </button>
         </div>
 
     <div className="h-90 flex flex-row space-x-30">

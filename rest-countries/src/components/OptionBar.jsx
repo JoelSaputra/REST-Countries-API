@@ -22,10 +22,10 @@ const OptionBar = ({ countries, onSelectRegion }) => {
     }
   }
 
-  const handleClick = (region) => {
-    setButtonOption(region);
+  const handleClick = (pRegion) => {
+    setButtonOption(pRegion);
     setIsOpen(false);
-    onSelectRegion(region);
+    onSelectRegion(pRegion);
   }
 
   return (

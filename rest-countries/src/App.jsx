@@ -13,6 +13,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCountries, setFilteredCountries] = useState(data);
   const [detailedIsOn, setDetailedIsOn] = useState(false);
+  const [detailedCountry, setDetailedCountry] = useState(null);
 
   const applyFilters = (search, region) => {
 
@@ -42,15 +43,20 @@ function App() {
     applyFilters(searchTerm, region);
   }
 
+  const openDetail = (pDetailedCountry) => {
+    setDetailedCountry(pDetailedCountry);
+    setDetailedIsOn(true);
+  }
+
 
   return (
 
     <div className="min-h-screen bg-custom-white overflow-x-hidden">
-      <TopBar className="z-50"/>
+      <TopBar/>
 
       { detailedIsOn &&
       <div className="bg-custom-white min-h-100 min-w-screen overflow-y-hidden" >
-        <DetailedPage country={data[0]}/>
+        <DetailedPage country={detailedCountry}/>
       </div>
       }
 
@@ -64,7 +70,7 @@ function App() {
 
       <div className="w-max mb-5 mt-10 ml-15 mr-15 grid grid-cols-4 space-x-32 space-y-32">
        {filteredCountries.map((country)=> 
-       <CountryCard key={country.name} country={country}/> )}
+       <CountryCard key={country.name} country={country} onClick={() => openDetail(country)}/> )}
       </div>
 
       </>

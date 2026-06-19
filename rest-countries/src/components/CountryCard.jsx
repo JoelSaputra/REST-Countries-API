@@ -1,10 +1,12 @@
 import React from 'react'
 
 
-const CountryCard = ({ country }) => {
+const CountryCard = ({ country, onClick }) => {
 
   return (
-    <div className="bg-stone-50 w-60 h-80 shadow-2xl rounded font-nunito">
+    <div className="bg-stone-50 w-60 h-80 shadow-2xl 
+    rounded font-nunito hover:cursor-pointer"
+    onClick={onClick}>
         
         <div className="w-60 h-40">
         <img className="w-full h-full object-cover" alt="flag" 
@@ -12,7 +14,7 @@ const CountryCard = ({ country }) => {
         </div>
 
 
-        <div className="flex flex-col align-middle pl-5 pt-5 pb-2">
+        <div className="flex flex-col align-middle pl-5 pt-5 pb-2 hover:cursor-pointer">
         <h1 className="font-extrabold mb-4">{country.name}</h1>
         <p className="text-sm text-custom-grey">
             <span className="font-lightbold text-black">Population:</span> {country.population.toLocaleString()}
