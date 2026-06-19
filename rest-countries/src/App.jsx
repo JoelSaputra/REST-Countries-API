@@ -11,6 +11,7 @@ function App() {
   const [countries, setCountries] = useState(data);
   const [selectedRegions, setSelectedRegions] = useState('');
   const [searchTerm, setSearchTerm] = useState("");
+  const [buttonOption, setButtonOption] = useState("Filter by Region");
   const [filteredCountries, setFilteredCountries] = useState(data);
   const [detailedIsOn, setDetailedIsOn] = useState(false);
   const [detailedCountry, setDetailedCountry] = useState(null);
@@ -51,12 +52,19 @@ function App() {
   const closeDetail = () => {
     setDetailedIsOn(false);
   }
+  
+
+  const resetFilters = () => {
+    applyFilters('', null);
+    setButtonOption("Filter by Region")
+    
+  }
 
 
   return (
 
     <div className="min-h-screen bg-custom-white overflow-x-hidden">
-      <TopBar/>
+      <TopBar resetClick={resetFilters}/>
 
       { detailedIsOn &&
       <div className="bg-custom-white min-h-100 min-w-screen overflow-y-hidden" >
@@ -68,7 +76,8 @@ function App() {
       <>
       <div className="mt-20 ml-15 flex flex-row space-x-170">
       <SearchBar onSearch={handleSearch}/>
-      <OptionBar countries={countries} onSelectRegion={handleRegion}/>
+      <OptionBar countries={countries} onSelectRegion={handleRegion} buttonOption={buttonOption}
+                 setButtonOption={setButtonOption} />
       </div>
 
 

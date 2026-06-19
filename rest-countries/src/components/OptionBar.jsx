@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 
-const OptionBar = ({ countries, onSelectRegion }) => {
+const OptionBar = ({ countries, onSelectRegion, buttonOption, setButtonOption }) => {
 
-  const [buttonOption, setButtonOption] = useState("Filter by Region");
   const [isOpen, setIsOpen] = useState(false);
 
   const nonDuplicates = new Set(countries.map((country)=>{
