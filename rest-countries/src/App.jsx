@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar'
 import OptionBar from './components/OptionBar';
 import CountryCard from './components/CountryCard';
 import data from './data.json'
+import DetailedPage from './components/DetailedPage';
 
 function App() {
 
@@ -11,14 +12,15 @@ function App() {
   const [selectedRegions, setSelectedRegions] = useState('');
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCountries, setFilteredCountries] = useState(data);
+  const [detailedIsOn, setDetailedIsOn] = useState(true);
 
   const applyFilters = (search, region) => {
 
     let filtered = [...countries];
 
     if(search && search.trim() !== ''){
-      filtered = filtered.filter((country) => 
-      country.name.toLowerCase().includes(search.toLowerCase())
+      filtered = filtered.filter(
+        (country) => country.name.toLowerCase().includes(search.toLowerCase())
     );
     }
     if(region && region !== ''){
@@ -44,8 +46,16 @@ function App() {
   return (
 
     <div className="min-h-screen bg-custom-white overflow-x-hidden">
-      <TopBar/>
+      <TopBar className="z-50"/>
 
+      { detailedIsOn &&
+      <div className="bg-custom-white min-h-100 min-w-screen overflow-y-hidden" >
+        <DetailedPage/>
+      </div>
+      }
+
+      {!detailedIsOn && 
+      <>
       <div className="mt-20 ml-15 flex flex-row space-x-170">
       <SearchBar onSearch={handleSearch}/>
       <OptionBar countries={countries} onSelectRegion={handleRegion}/>
@@ -57,6 +67,8 @@ function App() {
        <CountryCard key={country.name} country={country}/> )}
       </div>
 
+      </>
+      }
 
     </div>
   )
